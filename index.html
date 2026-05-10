@@ -1,42 +1,66 @@
-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu — La Maison Rouge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;500;600&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
 
-  .page {
+  body {
     background: #1a0505;
     min-height: 100vh;
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding: 2.5rem 1.25rem 3rem;
+    padding: clamp(1rem, 5vw, 2.5rem) clamp(0.75rem, 4vw, 1.25rem) clamp(2rem, 6vw, 3rem);
     font-family: 'Cormorant Garamond', serif;
   }
 
   .card {
     background: #faf5ec;
     width: 100%;
-    max-width: 340px;
-    padding: 0;
+    max-width: 420px;
     position: relative;
     border: 1px solid #c9a96e;
   }
 
   .card-inner {
     border: 0.5px solid #c9a96e;
-    margin: 10px;
-    padding: 2.2rem 1.8rem 2.5rem;
+    margin: clamp(7px, 2vw, 11px);
+    padding: clamp(1.4rem, 6vw, 2.4rem) clamp(1.1rem, 5.5vw, 2rem) clamp(1.8rem, 6vw, 2.8rem);
   }
 
-  .top-ornament { text-align: center; margin-bottom: 1.4rem; }
-  .top-ornament svg { width: 120px; height: 32px; }
+  .corner {
+    position: absolute;
+    width: clamp(13px, 4vw, 20px);
+    height: clamp(13px, 4vw, 20px);
+    border-color: #c9a96e;
+    border-style: solid;
+  }
+  .corner-tl { top: 5px; left: 5px; border-width: 1.5px 0 0 1.5px; }
+  .corner-tr { top: 5px; right: 5px; border-width: 1.5px 1.5px 0 0; }
+  .corner-bl { bottom: 5px; left: 5px; border-width: 0 0 1.5px 1.5px; }
+  .corner-br { bottom: 5px; right: 5px; border-width: 0 1.5px 1.5px 0; }
+
+  .top-ornament {
+    text-align: center;
+    margin-bottom: clamp(1rem, 3.5vw, 1.5rem);
+  }
+  .top-ornament svg {
+    width: clamp(90px, 28vw, 130px);
+    height: auto;
+  }
 
   .restaurant-name {
     font-family: 'Cinzel', serif;
-    font-size: 10px;
+    font-size: clamp(8px, 2.4vw, 10.5px);
     font-weight: 600;
-    letter-spacing: 5px;
+    letter-spacing: clamp(3px, 1.2vw, 5px);
     color: #8b1a1a;
     text-align: center;
     text-transform: uppercase;
@@ -47,117 +71,108 @@
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-weight: 300;
-    font-size: 52px;
+    font-size: clamp(40px, 13vw, 58px);
     color: #1a0505;
     text-align: center;
     line-height: 0.95;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.25rem;
     letter-spacing: -1px;
   }
 
   .tagline {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 12px;
+    font-size: clamp(11px, 3vw, 13px);
     color: #9b7b4a;
     text-align: center;
     letter-spacing: 1.5px;
-    margin-bottom: 1.6rem;
+    margin-bottom: clamp(1.2rem, 4vw, 1.8rem);
   }
 
   .gold-rule {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin: 1.3rem 0;
+    margin: clamp(1rem, 3.5vw, 1.4rem) 0;
   }
-
   .gold-rule-line { flex: 1; height: 1px; background: #c9a96e; }
-
   .gold-diamond {
-    width: 5px;
-    height: 5px;
+    width: 5px; height: 5px;
     background: #8b1a1a;
     transform: rotate(45deg);
     flex-shrink: 0;
   }
 
-  .section-header { text-align: center; margin-bottom: 1.2rem; }
-
+  .section-header {
+    text-align: center;
+    margin-bottom: clamp(0.9rem, 3vw, 1.2rem);
+  }
   .section-label {
     font-family: 'Cinzel', serif;
-    font-size: 9.5px;
+    font-size: clamp(8.5px, 2.5vw, 10px);
     font-weight: 500;
-    letter-spacing: 4px;
+    letter-spacing: clamp(3px, 1.2vw, 4.5px);
     color: #8b1a1a;
     text-transform: uppercase;
   }
-
   .section-num {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 11px;
+    font-size: clamp(10px, 3vw, 12px);
     color: #c9a96e;
     display: block;
     margin-top: 2px;
     letter-spacing: 1px;
   }
 
-  .dish { text-align: center; margin-bottom: 1rem; }
-
+  .dish {
+    text-align: center;
+    margin-bottom: clamp(0.8rem, 2.5vw, 1rem);
+  }
   .dish-name {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 600;
-    font-size: 17px;
+    font-size: clamp(15px, 4.5vw, 18px);
     color: #1a0505;
     line-height: 1.3;
     margin-bottom: 5px;
-    letter-spacing: 0.2px;
   }
-
   .dish-desc {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-weight: 300;
-    font-size: 13px;
+    font-size: clamp(12px, 3.5vw, 13.5px);
     color: #7a5c35;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   .or-sep {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 13px;
+    font-size: clamp(12px, 3.5vw, 13px);
     color: #c9a96e;
     text-align: center;
-    margin: 0.6rem 0;
+    margin: clamp(0.4rem, 1.5vw, 0.6rem) 0;
     letter-spacing: 2px;
   }
 
-  .bottom-ornament { text-align: center; margin-top: 1.6rem; }
-
-  .bottom-ornament-text {
+  .footer-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: clamp(1rem, 3.5vw, 1.5rem);
+  }
+  .footer-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
+    font-size: clamp(11px, 3.5vw, 14px);
     color: #c9a96e;
-    letter-spacing: 10px;
-    padding-left: 10px;
+    letter-spacing: clamp(5px, 2vw, 10px);
+    padding-left: clamp(4px, 1.5vw, 8px);
+    white-space: nowrap;
   }
-
-  .corner {
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    border-color: #c9a96e;
-    border-style: solid;
-  }
-  .corner-tl { top: 5px; left: 5px; border-width: 1.5px 0 0 1.5px; }
-  .corner-tr { top: 5px; right: 5px; border-width: 1.5px 1.5px 0 0; }
-  .corner-bl { bottom: 5px; left: 5px; border-width: 0 0 1.5px 1.5px; }
-  .corner-br { bottom: 5px; right: 5px; border-width: 0 1.5px 1.5px 0; }
 </style>
-
-<div class="page">
+</head>
+<body>
   <div class="card">
     <div class="corner corner-tl"></div>
     <div class="corner corner-tr"></div>
@@ -181,77 +196,56 @@
       <p class="menu-script">Menu</p>
       <p class="tagline">Table d'hôte · Prix fixe</p>
 
-      <div class="gold-rule">
-        <div class="gold-rule-line"></div>
-        <div class="gold-diamond"></div>
-        <div class="gold-rule-line"></div>
-      </div>
+      <div class="gold-rule"><div class="gold-rule-line"></div><div class="gold-diamond"></div><div class="gold-rule-line"></div></div>
 
       <div class="section-header">
         <span class="section-label">Almoço</span>
         <span class="section-num">I</span>
       </div>
-
       <div class="dish">
-        <p class="dish-name">Carne</p>
-        <p class="dish-desc">churrasco ao ponto<br>linguiça, pão e vinagrete</p>
+        <p class="dish-name">Burrata com Tomates Heirloom</p>
+        <p class="dish-desc">regada com azeite de manjericão<br>e flor de sal do Mediterrâneo</p>
       </div>
-
       <div class="or-sep">· ou ·</div>
-
       <div class="dish">
-        <p class="dish-name">Salmão</p>
-        <p class="dish-desc">assado ou frito<br>tomate cereja e alho</p>
+        <p class="dish-name">Sopa de Cebola Gratinada</p>
+        <p class="dish-desc">caldo dourado de res, croutons rústicos<br>e gruyère derretido</p>
       </div>
 
-      <div class="gold-rule">
-        <div class="gold-rule-line"></div>
-        <div class="gold-diamond"></div>
-        <div class="gold-rule-line"></div>
-      </div>
+      <div class="gold-rule"><div class="gold-rule-line"></div><div class="gold-diamond"></div><div class="gold-rule-line"></div></div>
 
       <div class="section-header">
         <span class="section-label">Jantar</span>
         <span class="section-num">II</span>
       </div>
-
       <div class="dish">
-        <p class="dish-name">Petiscos</p>
-        <p class="dish-desc">bom vinho bordo<br>salaminho e queijo brie</p>
+        <p class="dish-name">Robalo Grelhado ao Limão</p>
+        <p class="dish-desc">crosta de ervas finas, brócolis salteado<br>e arroz negro de açafrão</p>
       </div>
-
       <div class="or-sep">· ou ·</div>
-
       <div class="dish">
-        <p class="dish-name">Hamburguer</p>
-        <p class="dish-desc">carne caramelizada<br>batatas fritas e molho</p>
+        <p class="dish-name">Pato Assado ao Glacê de Cereja</p>
+        <p class="dish-desc">batatas dauphinoise gratinadas<br>e cenouras baby caramelizadas</p>
       </div>
 
-      <div class="gold-rule">
-        <div class="gold-rule-line"></div>
-        <div class="gold-diamond"></div>
-        <div class="gold-rule-line"></div>
-      </div>
+      <div class="gold-rule"><div class="gold-rule-line"></div><div class="gold-diamond"></div><div class="gold-rule-line"></div></div>
 
       <div class="section-header">
         <span class="section-label">Sobremesa</span>
         <span class="section-num">III</span>
       </div>
-
       <div class="dish">
-        <p class="dish-name">Chocolates</p>
-        <p class="dish-desc">aquilo que a de melhor<br>
+        <p class="dish-name">Panna Cotta de Baunilha Bourbon</p>
+        <p class="dish-desc">coulis de framboesa selvagem<br>e crumble de amêndoas torradas</p>
       </div>
 
-      <div class="bottom-ornament">
-        <div class="gold-rule" style="margin-bottom: 0.9rem;">
-          <div class="gold-rule-line"></div>
-          <div class="gold-diamond"></div>
-          <div class="gold-rule-line"></div>
-        </div>
-        <span class="bottom-ornament-text">✦ ✦ ✦</span>
+      <div class="footer-row">
+        <div class="gold-rule-line"></div>
+        <span class="footer-text">✦ ✦ ✦</span>
+        <div class="gold-rule-line"></div>
       </div>
 
     </div>
   </div>
-</div>
+</body>
+</html>
